@@ -1,3 +1,4 @@
+import 'package:english_card/packages/quote/quote.dart';
 import 'package:english_card/pages/landing_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -5,7 +6,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:english_card/values/app_styles.dart';
 
-void main(){
+void main() async{
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Quotes().getAll();
   runApp(MyApp());
 }
 class MyApp extends StatelessWidget {
@@ -30,10 +34,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('English Card',
-      //   style: GoogleFonts.acme(),),
-      // ),
       body: Landingpage()
     );
   }
